@@ -1,0 +1,41 @@
+<div class="todo-main-content">
+  <h1 class="page-title">My Todos</h1>
+  <div class="todo-create">
+    <form #todoForm="ngForm" (ngSubmit) = "createTodo(todoForm)" novalidate>
+      <input type="text" id="title" class="form-control" placeholder="Type your task here..." 
+             required
+             name="title" [(ngModel)]="newTodo.title"
+             #title="ngModel" >
+      <div *ngIf="title.errors && title.dirty"
+           class="alert alert-danger">
+          <div [hidden]="!title.errors.required">
+            Required.
+          </div>
+      </div>
+    </form>
+  </div>
+  <ul class="todo-list">
+    <li *ngFor="let todo of todos" [class.completed]= "todo.completed === true" >
+      <div class="todo-row">
+          <a class="todo-completed">
+            <i class="material-icons toggle-completed-checkbox"></i> 
+          </a> 
+          <span class="todo-title">
+            {{todo.title}}
+          </span>
+          <span class="todo-actions">
+              <a>
+                <i class="material-icons edit">edit</i>
+              </a>
+              <a>
+                <i class="material-icons delete">delete</i>
+              </a>
+          </span>
+      </div>
+      
+    </li>
+  </ul>
+  <div class="no-todos" *ngIf="todos && todos.length == 0">
+      <p>No Todos Found!</p>
+  </div>
+</div>
