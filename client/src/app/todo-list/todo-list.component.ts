@@ -11,6 +11,8 @@ import {NgForm} from '@angular/forms';
 export class TodoListComponent implements OnInit {
   todos: Todo[];
   newTodo: Todo = new Todo();
+  editing: boolean = false;
+  editingTodo: Todo = new Todo();
 
   constructor(
     private todoService: TodoService,
@@ -38,5 +40,40 @@ export class TodoListComponent implements OnInit {
     }) 
   }
 
+  clearEditing(): void {
+    this.editingTodo = new Todo();
+    this.editing = false;
+  }
+
+  deleteTodo(id: BigInteger): void {
+    this.todoService.deleteTodo(id)
+    .subscribe(() => {
+      this.todos = this.todos.filter(todo => todo.id != id);
+    });
+  }
+
+  editTodo(todoData: Todo): void {
+    this.editing = true;
+    Object.assign(this.editingTodo, todoData);
+  }
+
+  updateTodo(todoData: Todo): void {
+    console.log(todoData);
+    this.todoService.updateTodo(todoData)
+    .subscribe(updatedTodo => {
+      let existingTodo = this.todos.find(todo => todo.id === updatedTodo.id);
+      Object.assign(existingTodo, updatedTodo);
+      this.clearEditing();
+    });
+  }
+
+  toggleCompleted(todoData: Todo): void {
+    todoData.completed = !todoData.completed;
+    this.todoService.updateTodo(todoData)
+    .subscribe(updatedTodo => {
+      let existingTodo = this.todos.find(todo => todo.id === updatedTodo.id);
+      Object.assign(existingTodo, updatedTodo);
+    });
+  }
 
 }
