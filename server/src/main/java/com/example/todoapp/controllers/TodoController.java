@@ -1,13 +1,14 @@
 package com.example.todoapp.controllers;
 
-import com.example.todoapp.Dao.TodoDaoService;
+import com.example.todoapp.Repository.TodoRepository;
 import com.example.todoapp.models.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -16,11 +17,22 @@ import java.util.List;
 public class TodoController {
 
     @Autowired
-    private TodoDaoService service;
+    private TodoRepository todoRepository;
 
     @GetMapping("/todos")
     public List<Todo> getAllTodos(){
-        return service.findAll();
+        return todoRepository.findAll();
+    }
+
+    @PostMapping("/todos")
+    public ResponseEntity<Object> createTodo(@Valid @RequestBody Todo todo) {
+        System.out.println(todo);
+        todo.setCompleted(false);
+        Todo savedTodo = todoRepository.save(todo);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedTodo.getId())
+                .toUri();
+
+        return ResponseEntity.created(location).build();
     }
 
 }
