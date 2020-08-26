@@ -35,4 +35,9 @@ public class TodoController {
         return ResponseEntity.created(location).build();
     }
 
+    @DeleteMapping("/todos/{id}")
+    public void deleteUser(@PathVariable int id) {
+        System.out.println(String.format("id",id));
+        todoRepository.deleteById(id);
+    }
 }
