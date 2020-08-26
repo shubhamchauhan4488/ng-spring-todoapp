@@ -27,17 +27,9 @@ export class TodoListComponent implements OnInit {
     .subscribe(data => this.todos = data) 
   }
 
-  createTodo(todoForm: NgForm) : void {
-    console.log('todoForm',todoForm);
-
+  createTodo(event) : void {
     this.todoService.createTodo(this.newTodo)
-    .subscribe(data => {
-      todoForm.reset();
-      console.log('this.newTodo',this.newTodo)
-      console.log('data',data)
-      this.todos.unshift(data);
-      return
-    }) 
+    .subscribe(() => this.getTodos()) 
   }
 
   clearEditing(): void {
@@ -48,6 +40,8 @@ export class TodoListComponent implements OnInit {
   deleteTodo(id: BigInteger): void {
     this.todoService.deleteTodo(id)
     .subscribe(() => {
+      console.log('deleting todo')
+
       this.todos = this.todos.filter(todo => todo.id != id);
     });
   }

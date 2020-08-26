@@ -67,7 +67,7 @@ input {
   padding-left: 15px;
   font-size: 14px;
   color: red;
-  padding-top: 5px;
+  margin-top: 10px;
 }
 
 .todo-main-content ul {
@@ -86,7 +86,7 @@ input {
 }
 
 .todo-main-content ul li span {
-  display: inline-block;
+  display: flex;
   vertical-align: middle;
 }
 
@@ -109,16 +109,24 @@ input {
 
 .todo-main-content .todo-actions, .todo-main-content .edit-actions {
     float: right;
+    width:10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-main-content .edit-title{
+  padding: 10px;
+  height: 30px;
+  width: 90%;
 }
 
 .todo-main-content .todo-actions i, .todo-main-content .edit-actions i {
-    font-size: 17px;
+    font-size: 20px;
 }
 
 .todo-main-content .todo-actions a, .todo-main-content .edit-actions a {
   display: inline-block;
   text-align: center;
-  width: 35px;
   cursor: pointer;
 }
 
