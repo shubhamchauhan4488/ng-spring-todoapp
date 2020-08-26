@@ -27,9 +27,12 @@ export class TodoListComponent implements OnInit {
     .subscribe(data => this.todos = data) 
   }
 
-  createTodo(event) : void {
+  createTodo(ngForm: NgForm) : void {
     this.todoService.createTodo(this.newTodo)
-    .subscribe(() => this.getTodos()) 
+    .subscribe(() => {
+      this.getTodos();
+      ngForm.reset();
+    }) 
   }
 
   clearEditing(): void {

@@ -2,7 +2,7 @@
 
   <h1 class="page-title">TO BE DONE</h1>
 
-  <form #todoForm="ngForm" (ngSubmit)="createTodo($event)" novalidate>
+  <form #todoForm="ngForm" (ngSubmit)="createTodo(todoForm)" novalidate>
     <div class="form-group">
       
       <input type="text" class="form-control" id="title" aria-describedby="todo-title" required name="title"
