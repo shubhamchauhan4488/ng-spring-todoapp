@@ -20,10 +20,11 @@ $ Your frontend is up!
 ```
 
 # BE
-- 1 ) Terminal : *[Maven] : Install Maven via Homebrew 
-- 2 ) You can also use Intellij/eclipse to run the project
+- 1) Terminal : *[Maven] : Install Maven via Homebrew -> go to server dir -> mvn spring-boot:run
+- 2) You can also use Intellij/eclipse to run the project
+- 3) Server will be running on http://localhost:8081 by default. This can be updated in application.properties file
 
-# FE 
+# Client APP UI 
 <p>Adding a Todo</p>
 <img src="client/Screenshots/Add.png" />
 <p>Editing a To Do</p>
@@ -32,3 +33,15 @@ $ Your frontend is up!
 <img src="client/Screenshots/MarkComplete.png" />
 <p>Deleted a Todo</p>
 <img src="client/Screenshots/DeleteSleep.png" />
+
+# Backend Request/Response for CRUD
+<p>Adding a Todo</p>
+<img src="server/Screenshots/Post.png" />
+<p>Getting all To Dos</p>
+<img src="server/Screenshots/Get.png" />
+<p>Updating a Todo by Id</p>
+<img src="server/Screenshots/Put.png" />
+<p>Deleted a Todo by Id</p>
+<img src="server/Screenshots/DeleteById.png" />
+<img src="server/Screenshots/Deleted.png" />
+
