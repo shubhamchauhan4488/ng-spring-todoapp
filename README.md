@@ -22,3 +22,13 @@ $ Your frontend is up!
 # BE
 - 1 ) Terminal : *[Maven] : Install Maven via Homebrew 
 - 2 ) You can also use Intellij/eclipse to run the project
+
+# FE 
+<p>Adding a Todo</p>
+<img src="client/Add.png" />
+<p>Editing a To Do</p>
+<img src="client/screenshots/EditingToDo.png" />
+<p>Mark a Todo as Complete</p>
+<img src="client/screenshots/MarkComplete.png" />
+<p>Deleted a Todo</p>
+<img src="client/screenshots/DeleteSleep.png" />
