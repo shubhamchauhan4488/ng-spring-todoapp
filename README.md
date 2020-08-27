@@ -25,10 +25,10 @@ $ Your frontend is up!
 
 # FE 
 <p>Adding a Todo</p>
-<img src="client/Add.png" />
+<img src="client/Screenshots/Add.png" />
 <p>Editing a To Do</p>
-<img src="client/screenshots/EditingToDo.png" />
+<img src="client/Screenshots/EditingToDo.png" />
 <p>Mark a Todo as Complete</p>
-<img src="client/screenshots/MarkComplete.png" />
+<img src="client/Screenshots/MarkComplete.png" />
 <p>Deleted a Todo</p>
-<img src="client/screenshots/DeleteSleep.png" />
+<img src="client/Screenshots/DeleteSleep.png" />
